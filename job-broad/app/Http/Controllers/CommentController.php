@@ -16,13 +16,13 @@ class CommentController extends Controller
 
     public function create(){
         Comment::create([
-            "author" => "Fady",
-            "content" => "Hello how are you ?",
-            "post_id" => 2,
+            "author" => "maher",
+            "content" => "Hello , you Ali ?",
+            "post_id" => 4,
         ]);
 
         return redirect("/comments");
     }
-    
+
 }
     
