@@ -12,7 +12,7 @@ class PostController extends Controller
     }
     function show($id){
         $post = Post::findOrFail($id);
-            return view("post.show", ["post"=> $post, "pageTitle"=> "Show"]);
+            return view("post.show", ["post"=> $post, "pageTitle"=> "Show Post"]);
     }
 
     function create(){
