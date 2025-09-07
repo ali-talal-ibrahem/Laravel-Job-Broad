@@ -14,7 +14,7 @@ class TagController extends Controller
     function create(){
         Tag::create(
         [
-            "title" => "Teashers",
+            "title" => "Sowftware Engineers",
         ]);
 
         return redirect("/tag");

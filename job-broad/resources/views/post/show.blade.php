@@ -2,7 +2,7 @@
 
     <div class="text-center">
         <h1 class="text-2xl">{{ $post->title }}</h1>
-        <p class="text-lg">{{ $post->bode }}</p>
+        <p class="text-lg text-blue-700">{{ $post->body }}</p>
         <p class="text-sm">{{ $post->author }}</p>
         <hr class="my-4">
         -Comments-

@@ -15,11 +15,8 @@ class CommentController extends Controller
 
 
     public function create(){
-        Comment::create([
-            "author" => "maher",
-            "content" => "Hello , you Ali ?",
-            "post_id" => 4,
-        ]);
+
+        Comment::factory(5)->create();
 
         return redirect("/comments");
     }
