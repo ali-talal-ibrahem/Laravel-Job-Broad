@@ -22,8 +22,9 @@
             <x-nav-link href="/"  :active="request()->is('/')">Home</x-nav-link>
             <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
             <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-            <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>
-            <x-nav-link href="/comments" :active="request()->is('comments')">Comments</x-nav-link>
+            <x-nav-link href="/post" :active="request()->is('posts')">Posts</x-nav-link>
+            <x-nav-link href="/comment" :active="request()->is('comments')">Comments</x-nav-link>
+            <x-nav-link href="/tag" :active="request()->is('tags')">Tags</x-nav-link>
             
             </div>
           </div>
@@ -31,8 +32,6 @@
             <!-- Profile dropdown -->
             <el-dropdown class="relative ml-3">
               <button class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
                 <img src="https://avatars.githubusercontent.com/u/221844269?v=4" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
               </button>
             </el-dropdown>
