@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -12,8 +14,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $data = Comment::paginate(10);
-        return view("comment.index", ["comments" => $data, "pageTitle" => 'Comments']);
+        return redirect("/post");
     }
 
     /**
@@ -21,16 +22,25 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view("comment.create", ["pageTitle" => 'Create Comments']);
+        return redirect("/post");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
-        // @TODO this will be completed in the forms section
+        $post = Post::findOrFail($request->input('post_id'));
 
+        $comment = new Comment();
+
+        $comment->author = $request->input('author');
+        $comment->content = $request->input('content');
+        $comment->post_id = $request->input('post_id');
+        
+        $comment->save();
+
+        return redirect("/post/{$post->id}")->with('success','Add comment successfully !');
     }
 
     /**
@@ -38,8 +48,7 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        $comment = Comment::findOrFail($id);
-        return view("comment.show", data: ["comment" => $comment, "pageTitle" => "Show Comment"]);
+        return redirect("/post");
     }
 
     /**
@@ -47,7 +56,7 @@ class CommentController extends Controller
      */
     public function edit(string $id)
     {
-        return view("comment.edit", ["pageTitle" => 'Edit Comment']);
+        //@TODO: 
     }
 
     /**
@@ -55,7 +64,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // @TODO this will be completed in the forms section
+        // @TODO:
 
     }
 
@@ -64,7 +73,7 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        // @TODO this will be completed in the forms section
+        // @TODO:
 
     }
 }
